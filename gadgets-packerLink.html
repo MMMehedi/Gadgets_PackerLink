@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gadgets Packer</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 480px;
+    width: 100%;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+
+  h1 {
+    color: #1a1a2e;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .tagline {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-website {
+    background: linear-gradient(135deg, #ee0979, #ff6a00);
+  }
+
+  .btn-whatsapp {
+    background: #25d366;
+  }
+
+  .btn-facebook {
+    background: #1877f2;
+  }
+
+  .footer-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #999;
+  }
+
+  #clickCount {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #777;
+    min-height: 18px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">📦</div>
+    <h1>Welcome to Gadgets Packer</h1>
+    <p class="tagline">
+      We provide all types of Packaging &amp; Printing items in wholesale price.
+    </p>
+
+    <div class="btn-group">
+      <a class="btn btn-website" href="https://gadgetspacker.xyz" target="_blank" rel="noopener" onclick="trackClick('Website')">
+        🌐 Visit our Website
+      </a>
+      <a class="btn btn-whatsapp" href="https://wa.me/8801329492779" target="_blank" rel="noopener" onclick="trackClick('WhatsApp')">
+        💬 Message us on WhatsApp
+      </a>
+      <a class="btn btn-facebook" href="https://www.facebook.com/share/1SCaFNkeyt/" target="_blank" rel="noopener" onclick="trackClick('Facebook')">
+        📘 Follow us on Facebook
+      </a>
+    </div>
+
+    <div id="clickCount"></div>
+    <p class="footer-note">&copy; <span id="year"></span> Gadgets Packer. All rights reserved.</p>
+  </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  let clicks = 0;
+  function trackClick(platform) {
+    clicks++;
+    const note = document.getElementById('clickCount');
+    note.textContent = 'Thanks for visiting our ' + platform + '! (' + clicks + ' link' + (clicks > 1 ? 's' : '') + ' opened)';
+  }
+</script>
+
+</body>
+</html>
